@@ -1,5 +1,5 @@
 # this funciton is to read a material library into a single material data structure
-
+import check_blank_comments as check
 def read_first_line(line):
     material_name = line[0]
     single_material_dic ={}
@@ -17,12 +17,14 @@ def read_components(line):
     return component_dic
 
 def main_loop(filename):
-    try:
-       f=open(filename)
-    except FileNotFoundError:
-       print('cannot find the file under the name of '+filename)
-       return
+    #try:
+    #   f=open(filename)
+    #except FileNotFoundError:
+    #   print('cannot find the file under the name of '+filename)
+    if check.check_blank_comments(filename)==False: 
+        return
     material_dictionary = {}
+    f= open(filename)
     for line in f:
         line = line.strip().split()
         if len(line[0]) >= 3:

@@ -18,7 +18,7 @@ def read_isotope(line):
 # return the element dictionary in main_loop
 def main_loop(filename):
  
-    if check.check_blank_comments(filename)!=True
+    if check.check_blank_comments(filename)==False:
        return 
     #try:
     #   f = open(filename)
@@ -26,6 +26,7 @@ def main_loop(filename):
     #   print('cannot find the file under the name of '+ filename)
     #   return
     element_dictionary = {}
+    f = open(filename)
     for line in f:
         line = line.strip().split()
         if len(line) > 2:
