@@ -1,5 +1,5 @@
 # this function is to read an element library into an element dictionary
-
+import check_blank_comments as check
 def read_first_line(line):
     symbol= line[0]
     single_element_dic = {}
@@ -17,11 +17,14 @@ def read_isotope(line):
     return isotope_dic
 # return the element dictionary in main_loop
 def main_loop(filename):
-    try:
-       f = open(filename)
-    except FileNotFoundError:
-       print('cannot find the file under the name of '+ filename)
-       return
+ 
+    if check.check_blank_comments(filename)!=True
+       return 
+    #try:
+    #   f = open(filename)
+    #except FileNotFoundError:
+    #   print('cannot find the file under the name of '+ filename)
+    #   return
     element_dictionary = {}
     for line in f:
         line = line.strip().split()
