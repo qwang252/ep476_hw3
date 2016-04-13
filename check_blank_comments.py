@@ -1,12 +1,13 @@
 def check_blank_comments(filename):
+    standard_file = True
     try:
        f= open(filename)
     except FileNotFoundError:
        print('cannout find the file under the name of '+filename)
+       return False
     except UnsupportedOperation:
        print('the file under the name of '+filename+' is not readable')
-    standard_file = True
-
+       return False
     i = 1
     for line in f:
     line = line.strip().split()
